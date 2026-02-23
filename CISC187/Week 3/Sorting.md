@@ -76,4 +76,9 @@ end
 The following code has one loop that runs N times based on the element the code is using. Within that loop, is another loop that runs only when the index is even so N/2 times. So in all, the total number of operations is (N/2) x N which would be N^2/2. Using Big O, we ignore the constant so the time complexity becomes O(N^2).
 
 
+##
+Video : 
+
+https://github.com/user-attachments/assets/eb62152a-1788-4d2b-bc36-d3721f021347
+
 
