@@ -215,7 +215,7 @@ Algorithm Selection :
 The code picks insertion sort when the array is already mostly sorted due to the time compleixty for insertion sort's best case scenario. It is much faster than selection sort when the array is already or close to being fully sorted. Selection sort behaves the same no matter what so that can be reserved for average and worst case.
 
 How Input Order Affects Time Complexity : 
-Input order matters a lot for Insertion Sort but not at all for Selection Sort. If the array is already sorted, Insertion Sort runs with a time complexity of O(N) which is faster than selection sort's best case but if its completely backwards it slows down to O(N²) because it has to move every element. Selection Sort is always O(N²) no matter what the input looks like, so it never gets faster or slower based on the order of the array.
+Input order matters a lot for Insertion Sort but not at all for Selection Sort. If the array is already sorted, Insertion Sort runs with a time complexity of O(N) which is faster than selection sort's best case but if its completely backwards it slows down to O(N^2) because it has to move every element. Selection Sort is always O(N^2) no matter what the input looks like, so it never gets faster or slower based on the order of the array.
 
 
 ---
