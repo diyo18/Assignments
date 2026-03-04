@@ -128,3 +128,10 @@ function containsX(string) {
 	return foundX; 
 }
 ```
+
+Video : 
+
+
+https://github.com/user-attachments/assets/0d564363-71df-46b0-8032-784625c5d442
+
+
