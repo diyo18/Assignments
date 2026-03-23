@@ -129,12 +129,13 @@ int main()
 #include <iostream>
 using namespace std;
 
-struct Node
+struct Node // given in instructions
 {
     int data;
     Node* next;
 };
 
+// given in instructions
 class Stack
 {
 private:
@@ -150,11 +151,12 @@ public:
     void display();
 };
 
+// given in instructions
 Stack::Stack()
 {
     head = nullptr;
 }
-
+// push function which creates a new node and places it at the front (head)
 void Stack::push(int value)
 {
   Node* newNode = new Node;
@@ -162,19 +164,19 @@ void Stack::push(int value)
   newNode->next = head;
   head = newNode;
 }
-
+// removes the node at the head
 void Stack::pop()
 {
-  if(isEmpty())
+  if(isEmpty()) // if empty, lets us know we can't pop from empty stack
     {
       cout << "Stack Underflow" << endl;
       return;
     }
-    Node* temp = head;
-    head = head ->next;
-    delete temp;
+    Node* temp = head; // saving current head
+    head = head ->next; // move head down to the next node
+    delete temp; // free up the memory of the old uneeded head
 }
-
+// observes and returns value without removing from the head
 int Stack::peek()
 {
   if (isEmpty())
@@ -185,11 +187,13 @@ int Stack::peek()
   return head->data;
 }
 
+
 bool Stack::isEmpty()
 {
     return head == nullptr;
 }
 
+// function to print all elements
 void Stack::display()
 {
   if (isEmpty())
@@ -206,6 +210,7 @@ void Stack::display()
   }
 }
 
+// inserting elements into stack by calling previous functions
 int main()
 {
   Stack s;
@@ -218,14 +223,15 @@ int main()
   s.display();
   cout << endl;
  
-  s.pop();
+  s.pop(); // remove top
  
-  cout << "Top element: " << s.peek() << endl;
+  cout << "Top element: " << s.peek() << endl; // show new top
   cout << endl;
  
-  s.display();
+  s.display(); // show new stack
   cout << endl;
- 
+
+// remove rest of elements including triggering the underflow to test
   s.pop();
   s.pop();
   s.pop();
