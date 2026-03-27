@@ -4,5 +4,15 @@
 2. If a well-balanced binary search tree contains 1,000 values, what is the maximum number of steps it would take to search for a value within it? **(1 point)**
 ##
 3. Write an algorithm that finds the greatest value within a binary search tree. **2 points)**
+
+```
+
+```
+
 ##
 4. Write a code in C++ using the same array mentioned in #1 and implement a binary search tree. Only insertion operation is required. **(5 points)**
+
+
+```cpp
+
+```
