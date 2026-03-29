@@ -5,14 +5,14 @@
 ##
 2. If a well-balanced binary search tree contains 1,000 values, what is the maximum number of steps it would take to search for a value within it? **(1 point)**
 
-Max number of steps is equal to the height of the tree which is calculated by base 2 logarithm, so Log2(1000) = 9.97 which would be 10 steps max it would take to search for a value within that BST.
+Max number of steps is equal to the height of the tree which is calculated by base 2 logarithm, so Log2(1000) = which would be 10 steps max it would take to search for a value within that BST.
 ##
 3. Write an algorithm that finds the greatest value within a binary search tree. **2 points)**
 
 ```
 function GreatestValue(node)
   if node has no right child:
-    return node
+    return node.value
   else:
     return GreatestValue(right child of node)
 ```
