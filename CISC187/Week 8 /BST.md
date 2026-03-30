@@ -31,7 +31,7 @@ BstNode* left; // pointer to left child
 BstNode* right; // pointer to right child
 };
 
-//builds new node and returns pointer to new node
+//makes the new node
 BstNode* createBstNode(int value) {
 BstNode* newNode = new BstNode();
   newNode->value = value;
@@ -40,7 +40,7 @@ BstNode* newNode = new BstNode();
 return newNode;
 }
 
-//takes current node and number that is being inserted
+//this is where the node gets inserted
 BstNode* insertNode(BstNode* root, int value) {
   //sees if there is a pointer, if not, it creates a new node so it can be assigned
   if (root == nullptr) {
