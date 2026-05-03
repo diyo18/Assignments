@@ -28,7 +28,7 @@ def factorial(n)
 end
 ```
 ANSWER : 
-If we use N-2 then the factorial gets decreased by increments of two so it never stops at 1. It decreases to 0 then down to the negatives. So we have stack overflow and our computer crashes
+If we use N-2 then the factorial gets decreased by increments of two so it never stops at 1. It decreases to 0 then down to the negatives. So we have stack overflow and our computer crashes. That would not be the case if we started at 9, but since we start at factorial(10), that is the result we get.
 ##
 
 3. Following is a function in which we pass in two numbers called low and high. The function returns the sum of all the numbers from low to high. For example, if low is 1, and high is 10, the function will return the sum of all numbers from 1 to 10, which is 55. However, our code is missing the base case, and will run indefinitely! Fix the code by adding the correct base case:
@@ -94,3 +94,5 @@ numberlist=[ 1,
 
 print_numbers_only(numberlist)
 ```
+Note: Since the question did not say C++, I used pseudocode. Let me know if a C++ version is required and I can submit one.
+
