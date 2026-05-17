@@ -29,7 +29,7 @@ function reverse(array) {
 		return newArray;
 }
 ```
-Answer : For this function, we have a loop grabbing values from an input array and moving them into a new array. No other modifications are done, so we end up pulling N elements from intital array into the new one. No other things being interacted with. So, in the end, we get N elements stored which means the space complexity is O(n).
+Answer : For this function, we have a loop grabbing values from an input array and moving them into a new array. No other modifications are done, so we end up pulling N elements from initial array into the new one. No other things being interacted with. So, in the end, we get N elements stored which means the space complexity is O(n).
 
 3. Create a new function to reverse an array that takes up just $O(1)$ extra space.
 
@@ -50,7 +50,7 @@ void reverseFunction(vector<int>& array) {
 }
 
 ```
-Answer : This algorithm takes an array. Creates a counter for the beginning of the array and then end. With that, it runs a while loop which swaps the two ends and then increases their count to capture the next ones. And because this is swapping the elements within the original array, its space complexity is only O(1)
+Answer : This algorithm takes an array. Creates a counter for the beginning of the array and then end. With that, it runs a while loop which swaps the two ends and then increases/decreases their count to capture the next ones. And because this is swapping the elements within the original array, its space complexity is only O(1)
 
 4. Following are three different implementations of a function that accepts an array of numbers and returns an array containing those numbers multiplied by 2. For example, if the input is [5, 4, 3, 2, 1], the output will be [10, 8, 6, 4, 2].
 
@@ -91,4 +91,4 @@ Fill in the table that follows to describe the efficiency of these three version
 | Version #2 | O(N)               | O(1)                |
 | Version #3 | O(N)              | O(N)              |
 
-Version 1 creates a new array and pushes the values onto it. That means the Time and Space Complexities are only N because it is running/storing through all elements once. Version 2 directly changes the elements within the array. So time complexity still has to check all N elements so it would be O(N) but space complexity does not change since it is directly changing the input. Version 3 takes an array and an index and doubles the values based on index through recursion. So the change are happening in the original array but since its done through recursion, we get call stacks added to the frame which is counted as N memory. So time and space compleixty would be O(N)
+Version 1 creates a new array and pushes the values onto it. That means the Time and Space Complexities are only N because it is running/storing through all elements once. Version 2 directly changes the elements within the array. So time complexity still has to check all N elements so it would be O(N) but space complexity does not change since it is directly changing the input. Version 3 takes an array and an index and doubles the values based on index through recursion. So the change are happening in the original array but since its done through recursion, we get frames added to the call stack which is counted as N memory. So time and space complexity would be O(N)
