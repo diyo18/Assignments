@@ -73,12 +73,7 @@ std::vector<std::string> findSamePlayers(std::vector<Playerinfo> basketball_play
     }
 
     return result;
-
 }
-
-
-
-
 ```
 
 ## Task 2
@@ -127,11 +122,7 @@ int FindMissingNumber (std::vector<int>& numberlist){
     int missingNumber = expectedsum - actualsum;
 
     return missingNumber;
-
-
-
 }
-
 ```
 
 ## Task 3
@@ -155,6 +146,31 @@ Note that we could make even more money if we buy and sell multiple times, but f
 Now, we could use nested loops to find the profit of every possible buy and sell combination. However, this would be $O(N^2)$ and too slow for our hotshot trading platform. 
 
 **Your job is to optimize the code so that the function clocks in at just $O(N)$.**
+
+ANSWER : 
+
+```
+int FindBestProfit (std::vector<int>& stockPriceList){
+
+    int mostProfit = 0;
+    int N = stockPriceList.size();
+    int cheapestDay = stockPriceList[0];
+
+    for (int i = 1; i < N; i++){
+        if (stockPriceList[i] < cheapestDay) {
+            cheapestDay = stockPriceList[i];
+        }
+        
+        else {
+            int profit = stockPriceList[i] - cheapestDay;
+                if (profit > mostProfit)
+                    mostProfit = profit;
+        }
+    }
+
+    return mostProfit;
+}
+```
 
 ## Task 4
 
