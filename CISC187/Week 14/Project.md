@@ -179,8 +179,66 @@ You’re writing a function that accepts an array of numbers and computes the hi
 ```
 [5, -10, -6, 9, 4]
 ```
-
 We could use nested loops to multiply every possible pair of numbers, but this would take $O(N^2)$ time. **Your job is to optimize the function so that it’s a speedy $O(N)$.**
+
+ANSWER : 
+
+```
+#include <vector>
+
+int FindHighestProduct (std::vector<int>& numberList){
+
+    int N = numberList.size();
+    int top1;
+    int top2;
+   
+    if (numberList[0] >= numberList[1]){
+            top1 = numberList[0];
+            top2 = numberList[1];
+     }
+
+    else{
+            top1 = numberList[1];
+            top2 = numberList[0];
+     }
+        
+    int bottom1 = top2;
+    int bottom2 = top1;
+
+    for (int i = 2; i < N; i++) {
+        int n = numberList[i];
+
+        if (n > top1){
+            top2 = top1;
+            top1 = n;
+        }
+        else if (n > top2)
+            top2 = n;
+
+        if (n < bottom1){
+            bottom2 = bottom1;
+            bottom1 = n;
+        }
+
+        else if (n < bottom2){
+            bottom2 = n;
+        }
+    }   
+
+    
+
+    int topProduct = top1 * top2;
+    int bottomProduct = bottom1 * bottom2;
+
+    if (topProduct > bottomProduct){
+        return topProduct;
+    }
+
+    else {
+        return bottomProduct;
+    }
+}
+```
 
 ## Task 5
 
