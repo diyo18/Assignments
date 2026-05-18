@@ -42,6 +42,11 @@ ANSWER :
 #include <string>
 #include <unordered_set>
 
+// For this code, I created a struct to recieve the data of the players.
+// From there, I run a loop that combines the first array of first and last names and store that in a hash set.
+// With that saved, I then run another loop that looks at the second array.
+// There is an if statement within that loop to check if names match and if they do, that first and last name gets deposited in the result variable
+
 struct Playerinfo {
 
     std::string first_name;
@@ -71,7 +76,7 @@ std::vector<std::string> findSamePlayers(std::vector<Playerinfo> basketball_play
 
 }
 
-// For this code, I created a struct to recieve the data of the players. From there, I run a loop that combines the first array of first and last names and store that in a hash set. With that saved, I then run another loop that looks at the second array. There is an if statement within that loop to check if names match and if they do, that first and last name gets depostied in the result variable
+
 
 
 ```
@@ -105,6 +110,10 @@ ANSWER :
 ```
 #include <vector>
 
+// For this algorithm, we can use a formula for expected sum since there is only one missing integer and there are no duplicates.
+// From there, I created a for loop that added up all the values within the array.
+// After that, it subtracts the actual value from the expected one which gives us our missing integer
+
 int FindMissingNumber (std::vector<int>& numberlist){
 
     int N = numberlist.size();
@@ -118,6 +127,9 @@ int FindMissingNumber (std::vector<int>& numberlist){
     int missingNumber = expectedsum - actualsum;
 
     return missingNumber;
+
+
+
 }
 
 ```
