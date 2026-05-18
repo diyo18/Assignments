@@ -256,6 +256,34 @@ Using a classic sorting algorithm such as Quicksort would take $O(N log N)$. How
 
 Yes, that’s right. Even though you’ve learned that the fastest sorts are $O(N log N)$, this case is different. Why? In this case, there are limited possibilities for the readings. In such a case, we can sort these values in $O(N)$. It may be $N$ multiplied by a constant, but that’s still considered $O(N)$.
 
+ANSWER : 
+
+```
+#include <iostream>
+#include <vector>
+
+std::vector<double> temperatureSorter(std::vector<double> tempList){
+
+    std::vector<int> counts(21,0);
+
+    for (double temps : tempList){
+        int slot = (temps - 97.) * 10.;
+        counts[slot]++;
+    }
+
+    std::vector<double> result;
+
+    for(int i = 0; i <= 20; i++){
+        for(int j = 0; j < counts[i]; j++){
+            double temp = i / 10.0 + 97.0;
+            result.push_back(temp);
+        }
+        }
+
+    return result;
+}
+```
+
 ## Task 6
 
 You’re writing a function that accepts an array of unsorted integers and returns the length of the *longest consecutive sequence* among them. The sequence is formed by integers that increase by 1. For example, in the array:
