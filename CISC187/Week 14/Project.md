@@ -325,12 +325,12 @@ int sequenceFinder(std::vector<int>& seqList){
         int currentNumber = seqList[i];
 
             if (!currentSeq.contains(currentNumber-1)){
-                int seqCounter = 1
+                int seqCounter = 1;
                 int currentValue = currentNumber;
 
                 while (currentSeq.contains(currentValue + 1)){
                     currentValue++;
-                    seqCounterr++;
+                    seqCounter++;
                 }
             if (seqCounter > bestLength) {
                 bestLength = seqCounter;
