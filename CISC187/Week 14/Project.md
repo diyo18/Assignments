@@ -66,7 +66,7 @@ std::vector<std::string> findSamePlayers(std::vector<Playerinfo> basketball_play
 
     for (Playerinfo& player : football_players) {
         std::string fullName = player.first_name + " " + player.last_name;
-        if (tempMemory.contains(fullName)){
+        if (tempMemory.find(fullName) != tempMemory.end()){
         result.push_back(fullName);
         }
         
