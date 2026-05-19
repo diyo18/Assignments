@@ -304,4 +304,40 @@ This array’s longest sequence is 11-12-13-14-15, so the function would return 
 
 **Your job is to optimize the function so that it takes $O(N)$ time.**
 
+ANSWER : 
+
+```
+#include <vector>
+#include <unordered_set>
+
+int sequenceFinder(std::vector<int>& seqList){
+
+    std::unordered_set<int> currentSeq;
+    int bestLength = 0;
+
+    for (int numbers : seqList){
+        currentSeq.insert(numbers);
+    }
+
+    int N = seqList.size();
+
+    for (int i = 0; i < N; i++){
+        int currentNumber = seqList[i];
+
+            if (!currentSeq.contains(currentNumber-1)){
+                int seqCounter = 1
+                int currentValue = currentNumber;
+
+                while (currentSeq.contains(currentValue + 1)){
+                    currentValue++;
+                    seqCounterr++;
+                }
+            if (seqCounter > bestLength) {
+                bestLength = seqCounter;
+            }
+        }
+    }
+    return bestLength;
+}
+```
 
