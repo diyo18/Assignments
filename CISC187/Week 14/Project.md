@@ -36,7 +36,7 @@ We can use a nested-loops approach, comparing each player from one array against
 
 ANSWER : 
 
-For this code, I created a struct to receive the data of the players. From there, I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N). With that saved, I then run another loop that looks at the second array. This takes O(M). If their name is found in that set that I put into the hash set, then I add it to the result. With that, I was able to get a time complexity of O(N+M).
+For this code, I created a struct to receive the data of the players. From there, I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N). I then run another loop that looks at the second array. This takes O(M). If their name is found in that set that I put into the hash set, then I add it to the result. With that, I was able to get a time complexity of O(N+M).
 
 ```
 #include <vector>
