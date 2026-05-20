@@ -46,7 +46,7 @@ ANSWER :
 // From there, I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N).
 // With that saved, I then run another loop that looks at the second array. This takes O(M)
 // There is an if statement within that loop to check if names match and if they do, that first and last name gets deposited in the result variable.
-// With this I am able to get a time complexity of O(N+M).
+// With that, I was able to get a time complexity of O(N+M).
 
 struct Playerinfo {
 
@@ -109,7 +109,7 @@ ANSWER :
 ```
 #include <vector>
 
-// For this algorithm, we can use a formula for expected sum since there is only one missing integer and there are no duplicates.
+// For this algorithm, I found a formula that I used for expected sum since there is only one missing integer and there are no duplicates.
 // From there, I created a for loop that added up all the values within the array.
 // After that, it subtracts the actual value from the expected one which gives us our missing integer
 // Since it only passes through the array once, my time complexity ends up being O(N).
@@ -283,7 +283,7 @@ ANSWER :
 ```
 #include <vector>
 
-// For this function, we can use a counting sort since there are only 21 possible values of temperature so that allows us to pass through the array once.
+// For this function, I used a counting sort since there are only 21 possible values of temperature so that allows us to pass through the array once.
 // Only one push happens per temperature so the time complexity is O(N)
 
 // function using double values for decimal points with array of temps as parameter
