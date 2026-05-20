@@ -36,7 +36,7 @@ We can use a nested-loops approach, comparing each player from one array against
 
 ANSWER : 
 
-For this code, I created a struct to receive the data of the players. From there, I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N). I then run another loop that looks at the second array. This takes O(M). If their name is found in that set that I put into the hash set, then I add it to the result. With that, I was able to get a time complexity of O(N+M).
+For problem number 1, I created a struct to receive the data of the players. After that I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N). I then run another loop that looks at the second array. This takes O(M). If their name is found in that set that I put into the hash set, then I add it to the result. With that, I was able to get a time complexity of O(N+M).
 
 ```
 #include <vector>
@@ -49,10 +49,10 @@ struct Playerinfo {
     std::string last_name;
     std::string team;
 };
-// function created here with the two arrays as parameters
+
 std::vector<std::string> findSamePlayers(std::vector<Playerinfo> basketball_players, std::vector<Playerinfo> football_players ){
 
-    std::unordered_set<std::string> tempMemory; // hashset to use as reference when comparing names
+    std::unordered_set<std::string> tempMemory; // hashset which is like my reference when comparing names
     std::vector<std::string> result;
 
     // loop to insert first array of specifically player names into hashset
@@ -101,7 +101,7 @@ Using a nested-loops approach would take up to $O(N^2)$.
 
 ANSWER :
 
-For this algorithm, I found a formula that I used for expected sum since there is only one missing integer and there are no duplicates. From there, I created a for loop that added up all the values within the array. After that, it subtracts the actual value from the expected one which gives us our missing integer. Since it only passes through the array once, my time complexity ends up being O(N).
+The arithmetic series formula really helped for this problem ( N times (N+1) all divided by 2). I used it for expected sum since there is only one missing integer and there are no duplicates. From there, I created a for loop that added up all the values within the array. After that, it subtracts the actual value from the expected one which gives us our missing integer. Since it only passes through the array once, my time complexity ends up being O(N).
 
 ```
 #include <vector>
@@ -152,8 +152,8 @@ This function only passes through the array once and checks the values during th
 ```
 #include <vector>
 
-// function with array of stock prices as parameter
-int FindBestProfit (std::vector<int>& stockPriceList){
+
+int FindBestPossibleProfit (std::vector<int>& stockPriceList){
 
     int mostProfit = 0; 
     int N = stockPriceList.size(); 
@@ -187,12 +187,12 @@ We could use nested loops to multiply every possible pair of numbers, but this w
 
 ANSWER : 
 
-For this function, the easiest way that I thought we could do this was by finding the top 2 greatest values and bottom 2 values. That way I am accounting for every number when finding the product in case the negatives have a higher product than positives. Because this function only passes through the array once, it has a time complexity of O(N).
+For task 4, the easiest way that I thought we could do this was by finding the top 2 greatest values and bottom 2 values. That way I am accounting for every number when finding the product in case the negatives have a higher product than positives. Because this function only passes through the array once, it has a time complexity of O(N).
 
 ```
 #include <vector>
 
-// function with our list of positive and negative numbers as the parameter
+
 int FindHighestProduct (std::vector<int>& numberList){
 
     int N = numberList.size(); 
@@ -326,7 +326,7 @@ This array’s longest sequence is 11-12-13-14-15, so the function would return 
 
 ANSWER : 
 
-For this function, I used a hash set to avoid checking every single number. Once I had the array of numbers in the hashset, I began by cycling through the array and subtracting from the current value. I did this to see whether the value was inside of a sequence or was a unique number / start of a sequence. For and while loops ran counters to see the length of sequence which was saved and returned at the end. In total, I only inserted the array once (hash set) and the rest was looking up and checking values.
+For this function, I used a hash set to avoid checking every single number. Once I had the array of numbers in the hashset, I began by going through the array and subtracting from the current value. I did this to see whether the value was inside of a sequence or was a unique number / start of a sequence (has N - 1 then it means its in the middle of a sequence / if it doesn't then it is the start). I then put for and while loops which counted to see the length of sequence which was saved and returned at the end. In total, I only inserted the array once (hash set) and the rest was looking up and checking values.
 
 ```
 #include <vector>
