@@ -117,7 +117,7 @@ ANSWER :
 // creating function with array of numbers as parameter
 int FindMissingNumber (std::vector<int>& numberlist){
 
-    int N = numberlist.size(); // counter to use in for loop
+    int N = numberlist.size(); 
     int expectedsum = N * (N+1) / 2; // equation that calculates sum of 0 to N, 
     int actualsum = 0; 
 
@@ -163,8 +163,8 @@ ANSWER :
 // function with array of stock prices as parameter
 int FindBestProfit (std::vector<int>& stockPriceList){
 
-    int mostProfit = 0; // variable to store the highest profit
-    int N = stockPriceList.size(); // counter for array size
+    int mostProfit = 0; 
+    int N = stockPriceList.size(); 
     int cheapestDay = stockPriceList[0]; // setting the cheapest day to the first day
 
     // for each day, check if it's a new cheapest or a chance to update profit
@@ -205,7 +205,7 @@ ANSWER :
 // function with our list of positive and negative numbers as the parameter
 int FindHighestProduct (std::vector<int>& numberList){
 
-    int N = numberList.size(); // array size for loop
+    int N = numberList.size(); 
     int top1; // creating variables to store top values
     int top2;
 
