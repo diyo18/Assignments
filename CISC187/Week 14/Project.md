@@ -156,20 +156,26 @@ Now, we could use nested loops to find the profit of every possible buy and sell
 ANSWER : 
 
 ```
+#include <vector>
+
+// This function only passes through the array once and checks the values during that pass which makes the time complexity O(N)
+
+// function with array of stock prices as parameter
 int FindBestProfit (std::vector<int>& stockPriceList){
 
-    int mostProfit = 0;
-    int N = stockPriceList.size();
-    int cheapestDay = stockPriceList[0];
+    int mostProfit = 0; // variable to store the highest profit
+    int N = stockPriceList.size(); // counter for array size
+    int cheapestDay = stockPriceList[0]; // setting the cheapest day to the first day
 
+    // for each day, check if it's a new cheapest or a chance to update profit
     for (int i = 1; i < N; i++){
         if (stockPriceList[i] < cheapestDay) {
-            cheapestDay = stockPriceList[i];
+            cheapestDay = stockPriceList[i]; // if it is cheaper, then it gets set as the cheapest and we move on
         }
-        
+        // if it is not cheaper, then we subtract it from the cheapest day to get profit and we store it
         else {
             int profit = stockPriceList[i] - cheapestDay;
-                if (profit > mostProfit)
+                if (profit > mostProfit) // as we get more profits calculated, we can compare it with the highest profit to see if it needs to be swapped
                     mostProfit = profit;
         }
     }
@@ -192,13 +198,19 @@ ANSWER :
 ```
 #include <vector>
 
+// For this function, the easiest way that I thought we could do this was by finding the top 2 greatest values and bottom 2 values.
+// That way I am accounting for every number when finding the product in case the negatives have a higher product than positives.
+// Because this function only passes through the array once, it has a time complexity of O(N).
+
+// function with our list of positive and negative numbers as the parameter
 int FindHighestProduct (std::vector<int>& numberList){
 
-    int N = numberList.size();
-    int top1;
+    int N = numberList.size(); // array size for loop
+    int top1; // creating variables to store top values
     int top2;
-   
-    if (numberList[0] >= numberList[1]){
+
+    // if statement to set the first two values within array to top. 
+    if (numberList[0] >= numberList[1]){ // check for which one is greater then it assigns values top1 or 2.
             top1 = numberList[0];
             top2 = numberList[1];
      }
@@ -208,12 +220,14 @@ int FindHighestProduct (std::vector<int>& numberList){
             top2 = numberList[0];
      }
         
-    int bottom1 = top2;
+    int bottom1 = top2; // setting values for bottom variables which may or may not get swapped out.
     int bottom2 = top1;
 
+    // for loop starts at the 3rd values since first two are already used
     for (int i = 2; i < N; i++) {
-        int n = numberList[i];
+        int n = numberList[i]; // creating n variable to assign current number and check
 
+        // if and else statement to see if it is greater than the current top value then assigns accordingly
         if (n > top1){
             top2 = top1;
             top1 = n;
@@ -221,6 +235,7 @@ int FindHighestProduct (std::vector<int>& numberList){
         else if (n > top2)
             top2 = n;
 
+        // another if statement to check if n is smaller than bottom1 or bottom 2.
         if (n < bottom1){
             bottom2 = bottom1;
             bottom1 = n;
@@ -232,10 +247,11 @@ int FindHighestProduct (std::vector<int>& numberList){
     }   
 
     
-
+    // final check by finding product of top and bottom values
     int topProduct = top1 * top2;
     int bottomProduct = bottom1 * bottom2;
 
+    // whichever product is greater is the one that is returned
     if (topProduct > bottomProduct){
         return topProduct;
     }
@@ -265,24 +281,33 @@ Yes, that’s right. Even though you’ve learned that the fastest sorts are $O(
 ANSWER : 
 
 ```
-#include <iostream>
 #include <vector>
 
+// For this function, we can use a counting sort since there are only 21 possible values of temperature so that allows us to pass through the array once.
+// Only one push happens per temperature so the time complexity is O(N)
+
+// function using double values for decimal points with array of temps as parameter
 std::vector<double> temperatureSorter(std::vector<double> tempList){
 
+    // creating 21 slots for each value of temperature
     std::vector<int> counts(21,0);
 
+    // for each temperature in the list, we find its place within the slot index by subtracting 97 and then multiplying by 10
+    // for example, 97.1 gets turned into 97.1 - 97 = 0.1 * 10 = 1 so its slot index is 1 
     for (double temps : tempList){
-        int slot = (temps - 97.) * 10.;
-        counts[slot]++;
+        int slot = (temps - 97) * 10;
+        counts[slot]++; // once we find its index, we then increase its count by 1
     }
 
+    
     std::vector<double> result;
 
+    // go through each slot that was created
     for(int i = 0; i <= 20; i++){
+        // for every single time the slot was tallied, we push that slot through an equation to get the original temperature
         for(int j = 0; j < counts[i]; j++){
-            double temp = i / 10.0 + 97.0;
-            result.push_back(temp);
+            double temp = i / 10.0 + 97.0; // original temp is found
+            result.push_back(temp); // then pushed to the result variable which is later returned in order
         }
         }
 
@@ -316,28 +341,39 @@ ANSWER :
 #include <vector>
 #include <unordered_set>
 
+// For this function, I used a hash set to avoid checking every single number.
+// Once I had the array of numbers in the hashset, I began by cycling through the array and subtracting from the current value.
+// This was done to see whether the value was inside of a sequence or was a unique number / start of a sequence.
+// For and while loops ran counters to see the length of sequence which was saved and returned at the end.
+// In total, we only inserted the array once (hash set) and the rest was looking up and checking values.
+
 int sequenceFinder(std::vector<int>& seqList){
 
+    // creating hashset that will be used to find sequences
     std::unordered_set<int> currentSeq;
     int bestLength = 0;
 
+    // using for loop to insert list of numbers into hash set
     for (int numbers : seqList){
         currentSeq.insert(numbers);
     }
 
-    int N = seqList.size();
+    int N = seqList.size(); 
 
+    
     for (int i = 0; i < N; i++){
         int currentNumber = seqList[i];
-
-            if (!currentSeq.contains(currentNumber-1)){
-                int seqCounter = 1;
+            // checks if currentNumber - 1 is not in the set. If it is not found, then it is the start of a sequence.
+            if (currentSeq.find(currentNumber - 1) == currentSeq.end()){
+                int seqCounter = 1; // start counter if it is the start of a sequence
                 int currentValue = currentNumber;
 
-                while (currentSeq.contains(currentValue + 1)){
+                // this loop keeps running as long as we find currentValue + 1. If it does not, then we stop
+                while (currentSeq.find(currentValue + 1) != currentSeq.end()){
                     currentValue++;
                     seqCounter++;
                 }
+            // when while loop ends, we check if the counter is greater than current length
             if (seqCounter > bestLength) {
                 bestLength = seqCounter;
             }
