@@ -36,7 +36,7 @@ We can use a nested-loops approach, comparing each player from one array against
 
 ANSWER : 
 
-For problem number 1, I created a struct to receive the data of the players. After that I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N). I then run another loop that looks at the second array. This takes O(M). If their name is found in that set that I put into the hash set, then I add it to the result. With that, I was able to get a time complexity of O(N+M).
+For problem number 1 using the hashset to save a reference and then compare against another array is how I got it down to O(N+M). First, I created a struct to receive the data of the players. After that I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N). I then run another loop that looks at the second array. This takes O(M). If their name is found in that set that I put into the hash set, then I add it to the result. So together, I get O(N+M).
 
 ```
 #include <vector>
@@ -270,7 +270,7 @@ Yes, that’s right. Even though you’ve learned that the fastest sorts are $O(
 
 ANSWER : 
 
-For this function, I used a counting sort since there are only 21 possible values of temperature so that allows us to pass through the array once. Only one push happens per temperature so the time complexity is O(N).
+This problem was different because it had a limited amount of acceptable values. That actually made it a lot easier. I ended up using a counting sort since there are only 21 possible values of temperature so that allows us to pass through the array once. Only one push happens per temperature so the time complexity is O(N).
 
 ```
 #include <vector>
@@ -326,7 +326,7 @@ This array’s longest sequence is 11-12-13-14-15, so the function would return 
 
 ANSWER : 
 
-For this function, I used a hash set to avoid checking every single number. Once I had the array of numbers in the hashset, I began by going through the array and subtracting from the current value. I did this to see whether the value was inside of a sequence or was a unique number / start of a sequence (has N - 1 then it means its in the middle of a sequence / if it doesn't then it is the start). I then put for and while loops which counted to see the length of sequence which was saved and returned at the end. In total, I only inserted the array once (hash set) and the rest was looking up and checking values.
+To get the O(N) time for this problem, I used a hash set like in problem 1 to avoid checking every single number. Once I had the array of numbers in the hashset, I began by going through the array and subtracting from the current value. I did this to see whether the value was inside of a sequence or was a unique number / start of a sequence (has N - 1 then it means its in the middle of a sequence / if it doesn't then it is the start). I then put for and while loops which counted to see the length of sequence which was saved and returned at the end. In total, I only inserted the array once (hash set) and the rest was looking up and checking values.
 
 ```
 #include <vector>
