@@ -42,10 +42,11 @@ ANSWER :
 #include <string>
 #include <unordered_set>
 
-// For this code, I created a struct to recieve the data of the players.
-// From there, I run a loop that combines the first array of first and last names and store that in a hash set.
-// With that saved, I then run another loop that looks at the second array.
-// There is an if statement within that loop to check if names match and if they do, that first and last name gets deposited in the result variable
+// For this code, I created a struct to receive the data of the players.
+// From there, I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N).
+// With that saved, I then run another loop that looks at the second array. This takes O(M)
+// There is an if statement within that loop to check if names match and if they do, that first and last name gets deposited in the result variable.
+// With this I am able to get a time complexity of O(N+M).
 
 struct Playerinfo {
 
@@ -53,19 +54,22 @@ struct Playerinfo {
     std::string last_name;
     std::string team;
 };
-
+// function created here with the two arrays as parameters
 std::vector<std::string> findSamePlayers(std::vector<Playerinfo> basketball_players, std::vector<Playerinfo> football_players ){
 
-    std::unordered_set<std::string> tempMemory;
+    std::unordered_set<std::string> tempMemory; // hashset to use as reference when comparing names
     std::vector<std::string> result;
 
+    // loop to insert first array of specifically player names into hashset
     for (Playerinfo& player : basketball_players) {
         std::string fullName = player.first_name + " " + player.last_name;
         tempMemory.insert(fullName);
     }
-
+    // loop that compares the second array across the first one which is in the hash set
     for (Playerinfo& player : football_players) {
         std::string fullName = player.first_name + " " + player.last_name;
+
+        // if statement to see if name is in set, if it is then we save it
         if (tempMemory.find(fullName) != tempMemory.end()){
         result.push_back(fullName);
         }
@@ -108,18 +112,20 @@ ANSWER :
 // For this algorithm, we can use a formula for expected sum since there is only one missing integer and there are no duplicates.
 // From there, I created a for loop that added up all the values within the array.
 // After that, it subtracts the actual value from the expected one which gives us our missing integer
+// Since it only passes through the array once, my time complexity ends up being O(N).
 
+// creating function with array of numbers as parameter
 int FindMissingNumber (std::vector<int>& numberlist){
 
-    int N = numberlist.size();
-    int expectedsum = N * (N+1) / 2;
-    int actualsum = 0;
+    int N = numberlist.size(); // counter to use in for loop
+    int expectedsum = N * (N+1) / 2; // equation that calculates sum of 0 to N, 
+    int actualsum = 0; 
 
     for (int i = 0; i < N; i++){
-        actualsum = actualsum + numberlist[i];
+        actualsum = actualsum + numberlist[i]; // loops through and adds up all numbers
     }
 
-    int missingNumber = expectedsum - actualsum;
+    int missingNumber = expectedsum - actualsum; // subtract against expected sum to get the missing integer
 
     return missingNumber;
 }
