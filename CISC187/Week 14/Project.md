@@ -36,17 +36,12 @@ We can use a nested-loops approach, comparing each player from one array against
 
 ANSWER : 
 
+For this code, I created a struct to receive the data of the players. From there, I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N). With that saved, I then run another loop that looks at the second array. This takes O(M). If their name is found in that set that I put into the hash set, then I add it to the result. With that, I was able to get a time complexity of O(N+M).
+
 ```
-#include <iostream>
 #include <vector>
 #include <string>
 #include <unordered_set>
-
-// For this code, I created a struct to receive the data of the players.
-// From there, I run a loop that combines the first array of first and last names and store that in a hash set. This takes O(N).
-// With that saved, I then run another loop that looks at the second array. This takes O(M)
-// If their name is found in that set that I put into the hash set, then I add it to the result.
-// With that, I was able to get a time complexity of O(N+M).
 
 struct Playerinfo {
 
@@ -106,13 +101,10 @@ Using a nested-loops approach would take up to $O(N^2)$.
 
 ANSWER :
 
+For this algorithm, I found a formula that I used for expected sum since there is only one missing integer and there are no duplicates. From there, I created a for loop that added up all the values within the array. After that, it subtracts the actual value from the expected one which gives us our missing integer. Since it only passes through the array once, my time complexity ends up being O(N).
+
 ```
 #include <vector>
-
-// For this algorithm, I found a formula that I used for expected sum since there is only one missing integer and there are no duplicates.
-// From there, I created a for loop that added up all the values within the array.
-// After that, it subtracts the actual value from the expected one which gives us our missing integer
-// Since it only passes through the array once, my time complexity ends up being O(N).
 
 // creating function with array of numbers as parameter
 int FindMissingNumber (std::vector<int>& numberlist){
@@ -155,10 +147,10 @@ Now, we could use nested loops to find the profit of every possible buy and sell
 
 ANSWER : 
 
+This function only passes through the array once and checks the values during that pass which makes the time complexity O(N).
+
 ```
 #include <vector>
-
-// This function only passes through the array once and checks the values during that pass which makes the time complexity O(N)
 
 // function with array of stock prices as parameter
 int FindBestProfit (std::vector<int>& stockPriceList){
@@ -195,12 +187,10 @@ We could use nested loops to multiply every possible pair of numbers, but this w
 
 ANSWER : 
 
+For this function, the easiest way that I thought we could do this was by finding the top 2 greatest values and bottom 2 values. That way I am accounting for every number when finding the product in case the negatives have a higher product than positives. Because this function only passes through the array once, it has a time complexity of O(N).
+
 ```
 #include <vector>
-
-// For this function, the easiest way that I thought we could do this was by finding the top 2 greatest values and bottom 2 values.
-// That way I am accounting for every number when finding the product in case the negatives have a higher product than positives.
-// Because this function only passes through the array once, it has a time complexity of O(N).
 
 // function with our list of positive and negative numbers as the parameter
 int FindHighestProduct (std::vector<int>& numberList){
@@ -280,11 +270,10 @@ Yes, that’s right. Even though you’ve learned that the fastest sorts are $O(
 
 ANSWER : 
 
+For this function, I used a counting sort since there are only 21 possible values of temperature so that allows us to pass through the array once. Only one push happens per temperature so the time complexity is O(N).
+
 ```
 #include <vector>
-
-// For this function, I used a counting sort since there are only 21 possible values of temperature so that allows us to pass through the array once.
-// Only one push happens per temperature so the time complexity is O(N)
 
 // function using double values for decimal points with array of temps as parameter
 std::vector<double> temperatureSorter(std::vector<double> tempList){
@@ -337,15 +326,11 @@ This array’s longest sequence is 11-12-13-14-15, so the function would return 
 
 ANSWER : 
 
+For this function, I used a hash set to avoid checking every single number. Once I had the array of numbers in the hashset, I began by cycling through the array and subtracting from the current value. I did this to see whether the value was inside of a sequence or was a unique number / start of a sequence. For and while loops ran counters to see the length of sequence which was saved and returned at the end. In total, I only inserted the array once (hash set) and the rest was looking up and checking values.
+
 ```
 #include <vector>
 #include <unordered_set>
-
-// For this function, I used a hash set to avoid checking every single number.
-// Once I had the array of numbers in the hashset, I began by cycling through the array and subtracting from the current value.
-// This was done to see whether the value was inside of a sequence or was a unique number / start of a sequence.
-// For and while loops ran counters to see the length of sequence which was saved and returned at the end.
-// In total, we only inserted the array once (hash set) and the rest was looking up and checking values.
 
 int sequenceFinder(std::vector<int>& seqList){
 
